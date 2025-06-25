@@ -4,7 +4,8 @@ export async function obtenerVuelos(origen, destino) {
   try {
     const res = await fetch(
       //`https://api.travelpayouts.com/v2/prices/latest?currency=usd&origin=${origen}&destination=${destino}`,
-      `http://localhost:3001/api/vuelos?origin=${origen}&destination=${destino}`,
+      //`http://localhost:3001/api/vuelos?origin=${origen}&destination=${destino}`,`api/vuelos?origin=${origen}&destination=${destino}`,
+      `/api/vuelos?origin=${origen}&destination=${destino}`,
       {
         headers: {
           "X-Access-Token": TOKEN,
@@ -12,6 +13,8 @@ export async function obtenerVuelos(origen, destino) {
         },
       }
     );
+
+    console.log("Response:", res);
 
     const data = await res.json();
     return data;
